@@ -12,13 +12,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Theater_Seats")
-public class TheaterSeatEntity { // real physical seats
+public class TheaterSeatEntity {
+    // real physical seats, so we can use multiple times for ShowSeats
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(columnDefinition = "seat_no",nullable = false)
     private String seatNo;
 
     @Enumerated(value = EnumType.STRING)
@@ -30,4 +30,10 @@ public class TheaterSeatEntity { // real physical seats
     @JoinColumn
     private TheaterEntity theater;
 
+
+    public TheaterSeatEntity(String seatNo, SeatType seatType, int rate) {
+        this.seatNo = seatNo;
+        this.seatType = seatType;
+        this.rate = rate;
+    }
 }

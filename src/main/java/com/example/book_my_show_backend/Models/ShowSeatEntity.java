@@ -27,7 +27,7 @@ public class ShowSeatEntity { // Virtual seats
 
     private boolean booked;
 
-    private Date bookedAt;
+    private Date bookedAt; // When BookTicket API called
 
 
     @ManyToOne

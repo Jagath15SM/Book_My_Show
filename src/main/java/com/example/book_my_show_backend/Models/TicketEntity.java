@@ -19,23 +19,24 @@ public class TicketEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String alloted_seats;
+    private String allotted_seats; //
 
-    private int amount;
+    private int amount; // total amount for Ticket
 
-    private Date booked_at;
+    private Date booked_at; // When ticket bookedAt
 
-
-    @ManyToOne
-    @JoinColumn
-    private UserEntity user;
 
     @ManyToOne
     @JoinColumn
-    private ShowEntity show;
+    private UserEntity user; //  Booked Ticket User
+
+    @ManyToOne
+    @JoinColumn
+    private ShowEntity show; // Which show ticket booked
 
     // TicketEntity (Parent) -> ShowSeatEntity : 1 : M
     @OneToMany(mappedBy = "ticket",cascade = CascadeType.ALL)
-    private List<ShowSeatEntity> bookedSeats;
+    private List<ShowSeatEntity> bookedSeats; // Booked seats
 
 }
+
