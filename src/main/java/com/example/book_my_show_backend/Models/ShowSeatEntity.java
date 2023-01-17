@@ -4,6 +4,7 @@ package com.example.book_my_show_backend.Models;
 import com.example.book_my_show_backend.Enums.SeatType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.util.Date;
 @Entity
 @Data
 @NoArgsConstructor
+@Builder
 @AllArgsConstructor
 @Table(name = "Show_Seats")
 public class ShowSeatEntity { // Virtual seats

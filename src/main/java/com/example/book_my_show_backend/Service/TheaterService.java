@@ -51,27 +51,10 @@ public class TheaterService {
 
         List<TheaterSeatEntity> seats = new ArrayList<>(10);
 
-        TheaterSeatEntity theaterSeat1 = new TheaterSeatEntity("1A", SeatType.CLASSIC, 100);
-        TheaterSeatEntity theaterSeat2 = new TheaterSeatEntity("1b", SeatType.CLASSIC, 100);
-        TheaterSeatEntity theaterSeat3 = new TheaterSeatEntity("1C", SeatType.CLASSIC, 100);
-        TheaterSeatEntity theaterSeat4 = new TheaterSeatEntity("1D", SeatType.CLASSIC, 100);
-        TheaterSeatEntity theaterSeat5 = new TheaterSeatEntity("1E", SeatType.CLASSIC, 100);
-        TheaterSeatEntity theaterSeat6 = new TheaterSeatEntity("2A", SeatType.PLATINUM, 200);
-        TheaterSeatEntity theaterSeat7 = new TheaterSeatEntity("2B", SeatType.PLATINUM, 200);
-        TheaterSeatEntity theaterSeat8 = new TheaterSeatEntity("2C", SeatType.PLATINUM, 200);
-        TheaterSeatEntity theaterSeat9 = new TheaterSeatEntity("2D", SeatType.PLATINUM, 200);
-        TheaterSeatEntity theaterSeat10 = new TheaterSeatEntity("2E", SeatType.PLATINUM, 200);
-
-        seats.add(theaterSeat1);
-        seats.add(theaterSeat2);
-        seats.add(theaterSeat3);
-        seats.add(theaterSeat4);
-        seats.add(theaterSeat5);
-        seats.add(theaterSeat6);
-        seats.add(theaterSeat7);
-        seats.add(theaterSeat8);
-        seats.add(theaterSeat9);
-        seats.add(theaterSeat10);
+        for(int i=0;i<5;i++){
+            seats.add(new TheaterSeatEntity("1" + (char)('A' + i), SeatType.CLASSIC, 100));
+            seats.add(new TheaterSeatEntity("2" + (char)('A' + i), SeatType.PLATINUM, 200));
+        }
 
         theaterSeatRepository.saveAll(seats);
 

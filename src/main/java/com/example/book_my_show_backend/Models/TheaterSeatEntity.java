@@ -24,7 +24,7 @@ public class TheaterSeatEntity {
     @Enumerated(value = EnumType.STRING)
     private SeatType seatType;
 
-    private int rate;
+    private int rate; // base price
 
     @ManyToOne
     @JoinColumn
