@@ -46,6 +46,9 @@ public class ShowService {
         showEntity.setMovie(movieEntity);
         showEntity.setTheater(theaterEntity);
 
+        movieEntity.getListOfShows().add(showEntity);
+        theaterEntity.getListOfShows().add(showEntity);
+
         // 3. Need to set ShowSeatEntity with ShowEntity
          List<ShowSeatEntity> seatEntityList = createTheaterSeatEntity(theaterEntity.getTheaterSeatEntityList());
 
@@ -55,7 +58,9 @@ public class ShowService {
          for(ShowSeatEntity s : seatEntityList){
              s.setShow(showEntity);
          }
-         showRepository.save(showEntity);
+         movieRepository.save(movieEntity);
+         theaterRepository.save(theaterEntity);
+
          return "Show added Successfully";
     }
 
