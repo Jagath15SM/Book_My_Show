@@ -9,7 +9,6 @@ import com.example.book_my_show_backend.Repository.TheaterRepository;
 import com.example.book_my_show_backend.Repository.TheaterSeatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +26,7 @@ public class TheaterService {
     // 5 classic : 1a, 1b, 1c, 1d, 1e
     // 5 platinum : 2a, 2b, 2c, 2d, 2e
     // we need to set TheaterSeat entity also
-    public String addTheater(@RequestBody TheaterRequestDto theaterRequestDto){
+    public String addTheater(TheaterRequestDto theaterRequestDto){
         TheaterEntity theater = TheaterEntity.builder().
                 name(theaterRequestDto.getName()).
                 city(theaterRequestDto.getCity()).

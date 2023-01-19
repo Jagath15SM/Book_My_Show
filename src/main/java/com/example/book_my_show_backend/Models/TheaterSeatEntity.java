@@ -2,10 +2,11 @@ package com.example.book_my_show_backend.Models;
 
 
 import com.example.book_my_show_backend.Enums.SeatType;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 @Entity
 @Data

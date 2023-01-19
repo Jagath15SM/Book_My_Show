@@ -2,7 +2,7 @@ package com.example.book_my_show_backend.Models;
 
 
 import com.example.book_my_show_backend.Enums.SeatType;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

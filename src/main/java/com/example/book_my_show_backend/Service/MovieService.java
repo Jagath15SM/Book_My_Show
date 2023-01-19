@@ -14,7 +14,7 @@ public class MovieService {
     MovieRepository movieRepository;
 
 
-    public String addMovie(@RequestBody() MovieRequestDto movieRequestDto){
+    public String addMovie(MovieRequestDto movieRequestDto){
 
         MovieEntity movie = MovieEntity.builder().
                 name(movieRequestDto.getName()).
