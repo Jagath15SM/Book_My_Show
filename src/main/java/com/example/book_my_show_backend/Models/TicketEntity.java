@@ -21,7 +21,7 @@ public class TicketEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String allotted_seats; //
+    private String allotted_seats;
 
     private int amount; // total amount for Ticket
 

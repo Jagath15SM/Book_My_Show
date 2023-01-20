@@ -1,6 +1,8 @@
 package com.example.book_my_show_backend.Service;
 
+import com.example.book_my_show_backend.Dtos.GetAllShowsByMovieRequestDto;
 import com.example.book_my_show_backend.Dtos.ShowRequestDto;
+import com.example.book_my_show_backend.Dtos.ShowResponseDto;
 import com.example.book_my_show_backend.Models.*;
 import com.example.book_my_show_backend.Repository.MovieRepository;
 import com.example.book_my_show_backend.Repository.ShowRepository;
@@ -75,6 +77,38 @@ public class ShowService {
         showSeatRepository.saveAll(seats);
 
         return seats;
+    }
+
+    public List<ShowResponseDto> getAllShows(GetAllShowsByMovieRequestDto getAllShowsByMovie){
+        List<ShowResponseDto> result = new ArrayList<>();
+        MovieEntity movie = movieRepository.findById(getAllShowsByMovie.getMovieID()).get();
+        List<ShowEntity> showList = movie.getListOfShows();
+
+        for(ShowEntity s : showList){
+            int startDate = (s.getShowDate().compareTo(getAllShowsByMovie.getStartDate()));
+            int endDate = (s.getShowDate().compareTo(getAllShowsByMovie.getEndDate()));
+            boolean validDate =  startDate >= 0 && endDate < 0;
+
+            int startTime = (s.getShowTime().compareTo(getAllShowsByMovie.getStartTime()));
+            int endTime = (s.getShowTime().compareTo(getAllShowsByMovie.getStartTime()));
+            boolean validTime = startTime >= 0 && endTime < 0;
+
+
+            if(validDate){
+                if((startDate == 0 && startTime > 0) || (endDate == 0 && endTime > 0)){
+
+                }
+                else{
+                    ShowResponseDto showResponseDto = ShowResponseDto.builder()
+                            .showDate(s.getShowDate()).showTime(s.getShowTime())
+                            .movieName(s.getMovie().getName())
+                            .theaterName(s.getTheater().getName())
+                            .build();
+                    result.add(showResponseDto);
+                }
+            }
+        }
+        return result;
     }
 
 

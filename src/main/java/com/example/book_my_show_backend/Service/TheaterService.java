@@ -47,17 +47,14 @@ public class TheaterService {
     }
 
     private List<TheaterSeatEntity> createTheaterSeats() {
-
         List<TheaterSeatEntity> seats = new ArrayList<>(10);
-
         for(int i=0;i<5;i++){
             seats.add(new TheaterSeatEntity("1" + (char)('A' + i), SeatType.CLASSIC, 100));
             seats.add(new TheaterSeatEntity("2" + (char)('A' + i), SeatType.PLATINUM, 200));
         }
-
         theaterSeatRepository.saveAll(seats);
-
         return seats;
     }
 
 }
+
